@@ -33,7 +33,7 @@ def make_nonogram(image: np.ndarray):
     # lines
     for i in set(x):
         indexes = np.uint(np.where(x == i))
-        line_blacks = y[indexes[0][0]:indexes[0][-1] + 1]
+        line_blacks = [y[index] for index in indexes[0]]
         nonograms['lines'][i] = line_to_nonogram(line_blacks)
 
     return nonograms
